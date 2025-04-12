@@ -6,10 +6,6 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     private final SessionFactory sessionFactory;
 
-    public static void main(String[] args) {
-        Main main = new Main();
-    }
-
     public Main() {
         sessionFactory = new Configuration()
                 .addAnnotatedClass(Actor.class)
@@ -27,6 +23,10 @@ public class Main {
                 .addAnnotatedClass(Staff.class)
                 .addAnnotatedClass(Store.class)
                 .buildSessionFactory();
+    }
+
+    public static void main(String[] args) {
+        Main main = new Main();
     }
 
     private Customer createCustomer() {
