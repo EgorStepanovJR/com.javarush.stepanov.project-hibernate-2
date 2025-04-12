@@ -1,7 +1,6 @@
 package entity;
 
 import jakarta.persistence.*;
-import jdk.jfr.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,18 +16,18 @@ public class Rental {
     @Id
     @Column(name = "rental_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "rental_date")
     @CreationTimestamp
     private LocalDateTime rentalDate;
 
     @ManyToOne
-    @JoinColumn(name = "inventory_inventory_id")
+    @JoinColumn(name = "inventory_id")
     private Inventory inventory;
 
     @ManyToOne
-    @JoinColumn(name = "customer_customer_id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @Column(name = "return_date")

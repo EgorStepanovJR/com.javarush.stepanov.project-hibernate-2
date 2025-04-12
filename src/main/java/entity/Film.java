@@ -3,6 +3,7 @@ package entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
@@ -24,9 +25,11 @@ public class Film {
     private String title;
 
     @Column(name = "description", columnDefinition = "text")
+    @Type(type = "text")
     private String description;
 
     @Column(name = "release_year", columnDefinition = "year")
+    @Type(type = "year")
     private Year releaseYear;
 
     @ManyToOne
@@ -55,7 +58,7 @@ public class Film {
     @Column(name = "special_features", columnDefinition = "set('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes')")
     private String specialFeatures;
 
-    @Column(name = "lats_update")
+    @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 

@@ -1,10 +1,35 @@
-import entity.Customer;
+import entity.*;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
-public static void main(String[] args) {
 
-}
+public class Main {
+    private final SessionFactory sessionFactory;
 
-private Customer createCustomer() {
+    public static void main(String[] args) {
+        Main main = new Main();
+    }
 
-    return null;
+    public Main() {
+        sessionFactory = new Configuration()
+                .addAnnotatedClass(Actor.class)
+                .addAnnotatedClass(Address.class)
+                .addAnnotatedClass(Category.class)
+                .addAnnotatedClass(City.class)
+                .addAnnotatedClass(Country.class)
+                .addAnnotatedClass(Customer.class)
+                .addAnnotatedClass(Film.class)
+                .addAnnotatedClass(FilmText.class)
+                .addAnnotatedClass(Inventory.class)
+                .addAnnotatedClass(Language.class)
+                .addAnnotatedClass(Payment.class)
+                .addAnnotatedClass(Rental.class)
+                .addAnnotatedClass(Staff.class)
+                .addAnnotatedClass(Store.class)
+                .buildSessionFactory();
+    }
+
+    private Customer createCustomer() {
+        return null;
+    }
 }

@@ -3,6 +3,7 @@ package entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "film_text", schema = "movie")
@@ -18,6 +19,7 @@ public class FilmText {
     private String title;
 
     @Column(name = "description", columnDefinition = "text")
+    @Type(type = "text")
     private String description;
 
     @OneToOne

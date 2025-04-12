@@ -25,7 +25,7 @@ public class Address {
     @Column(name = "district")
     private String district;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
 
