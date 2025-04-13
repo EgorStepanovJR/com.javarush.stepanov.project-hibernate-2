@@ -1,8 +1,7 @@
 package entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -10,8 +9,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "staff", schema = "movie")
+//Lombok
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Staff {
     @Id
     @Column(name = "staff_id")

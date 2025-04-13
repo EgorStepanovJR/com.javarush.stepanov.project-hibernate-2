@@ -1,14 +1,17 @@
 package entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "film_text", schema = "movie")
+//Lombok
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FilmText {
     @Id
     @Column(name = "film_id")

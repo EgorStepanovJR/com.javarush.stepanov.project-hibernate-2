@@ -1,6 +1,7 @@
 package entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +10,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "payment", schema = "movie")
+//Lombok
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Payment {
     @Id
     @Column(name = "payment_id")
