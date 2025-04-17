@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "store", schema = "movie")
@@ -31,4 +32,12 @@ public class Store {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @OneToMany(mappedBy = "store")
+    @ToString.Exclude
+    Set<Inventory> inventories;
+
+    @OneToMany(mappedBy = "store")
+    @ToString.Exclude
+    Set<Customer> customers;
 }

@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 public class MySessionFactory {
     public SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration()
+                .configure()
                 .addAnnotatedClass(Actor.class)
                 .addAnnotatedClass(Address.class)
                 .addAnnotatedClass(Category.class)

@@ -6,6 +6,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "staff", schema = "movie")
@@ -55,4 +56,12 @@ public class Staff {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @OneToMany(mappedBy = "staff")
+    @ToString.Exclude
+    Set<Rental> rental;
+
+    @OneToMany(mappedBy = "staff")
+    @ToString.Exclude
+    Set<Payment> payment;
 }

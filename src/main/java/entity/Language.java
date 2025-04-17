@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "language", schema = "movie")
@@ -26,4 +27,12 @@ public class Language {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @OneToMany(mappedBy = "language")
+    @ToString.Exclude
+    Set<Film> films;
+
+    @OneToMany(mappedBy = "originalLanguage")
+    @ToString.Exclude
+    Set<Film> originalFilms;
 }

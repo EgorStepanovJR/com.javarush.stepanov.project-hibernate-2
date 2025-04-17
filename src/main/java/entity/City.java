@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "city", schema = "movie")
@@ -30,4 +31,8 @@ public class City {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @OneToMany(mappedBy = "city")
+    @ToString.Exclude
+    Set<Address> addresses;
 }

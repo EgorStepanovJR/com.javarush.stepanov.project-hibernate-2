@@ -23,6 +23,6 @@ public enum Rating {
                 return rating;
             }
         }
-        throw new IllegalArgumentException(STR."Invalid Rating value: \{value}");
+        throw new IllegalArgumentException("Invalid Rating value: " + value);
     }
 }

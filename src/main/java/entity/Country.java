@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "country", schema = "movie")
@@ -13,6 +14,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
+@ToString
 @Builder
 public class Country {
     @Id
@@ -26,4 +29,8 @@ public class Country {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @OneToMany(mappedBy = "country")
+    @ToString.Exclude
+    Set<City> cities;
 }

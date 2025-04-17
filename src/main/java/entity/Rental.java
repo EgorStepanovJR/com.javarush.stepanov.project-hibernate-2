@@ -43,4 +43,8 @@ public class Rental {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+
+    @OneToOne(mappedBy = "rental")
+    @ToString.Exclude
+    Payment payment;
 }

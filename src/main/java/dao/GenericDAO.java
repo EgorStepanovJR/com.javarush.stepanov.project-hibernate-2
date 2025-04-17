@@ -1,6 +1,6 @@
 package dao;
 
-
+import config.MySessionFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -14,6 +14,10 @@ public class GenericDAO<T> {
     public GenericDAO(final Class<T> clazzToSet, SessionFactory sessionFactory) {
         this.clazz = clazzToSet;
         this.sessionFactory = sessionFactory;
+    }
+
+    protected Session getCurrentSession() {
+        return this.sessionFactory.getCurrentSession();
     }
 
     public List<T> getItems(int from, int count) {
@@ -38,9 +42,5 @@ public class GenericDAO<T> {
 
     public void delete(final T entity) {
         getCurrentSession().delete(entity);
-    }
-
-    protected Session getCurrentSession() {
-        return this.sessionFactory.getCurrentSession();
     }
 }
